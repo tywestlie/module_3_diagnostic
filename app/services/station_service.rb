@@ -13,7 +13,7 @@ class StationService
     attr_reader :zip
 
     def response
-      Faraday.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?location=#{@zip}&fuel_type=E85,ELEC&radius=10&limit=10&api_key=#{ENV['NREL_API_KEY']}&format=JSON")
+      Faraday.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?location=#{@zip}&fuel_type=E85,ELEC&radius=6&limit=10&api_key=#{ENV['NREL_API_KEY']}&format=JSON")
     end
 
     def data
