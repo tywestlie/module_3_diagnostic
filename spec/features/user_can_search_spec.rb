@@ -13,11 +13,10 @@ describe 'user can search for alt fuels' do
     # Then I should be on page "/search"
     expect(current_path).to eq(search_path)
     # Then I should see a list of the 10 closest stations within 6 miles sorted by distance
-    expect(page).to have_content('10 stations')
     # And the stations should be limited to Electric and Propane
     expect(page).to have_css('.station', count: 10)
-    
-    within('.station') do
+
+    within(first('.station')) do
       expect(page).to have_css('.name')
       expect(page).to have_css('.address')
       expect(page).to have_css('.fuel_type')
